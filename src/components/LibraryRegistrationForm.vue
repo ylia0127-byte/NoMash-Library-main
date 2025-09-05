@@ -113,6 +113,28 @@ const validateConfirmPassword = (blur) => {
             </div>
 
             <div class="col-md-6 col-sm-6">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-select" id="gender" v-model="formData.gender" required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            
+            <div class="col-md-6 col-sm-6"> 
+              <label for="password" class="form-label">Password</label> 
+              <input
+               type="password"
+               class="form-control" 
+               id="password" @blur="() => validatePassword(true)" 
+               @input="() => validatePassword(false)" v-model="formData.password" 
+              /> 
+              <div v-if="errors.confirmPassword" class="text-danger"> 
+                {{ errors.confirmPassword }} 
+              </div> 
+            </div>
+
+            <div class="col-md-6 col-sm-6">
               <label for="confirm-password" class="form-label">Confirm password</label>
                 <input
                   type="password"
@@ -126,6 +148,7 @@ const validateConfirmPassword = (blur) => {
                 </div>
             </div>
           </div>
+
           <div class="row mb-3">
             <div class="col-md-6 col-sm-6">
               <div class="form-check">
@@ -138,15 +161,8 @@ const validateConfirmPassword = (blur) => {
                 <label class="form-check-label" for="isAustralian">Australian Resident?</label>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6">
-              <label for="gender" class="form-label">Gender</label>
-              <select class="form-select" id="gender" v-model="formData.gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
           </div>
+
           <div class="mb-3">
             <label for="reason" class="form-label">Reason for joining</label>
             <textarea
