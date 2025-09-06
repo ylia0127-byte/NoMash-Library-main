@@ -72,6 +72,8 @@ const validatePassword = (blur) => {
     errors.value.password = null
   }
 
+
+}
   /*
  * Confirm password validation function that checks if the password and confirm password fields match.
  * @param blur: boolean - If true, the function will display an error message if the passwords do not match.
@@ -82,8 +84,6 @@ const validateConfirmPassword = (blur) => {
   } else {
     errors.value.confirmPassword = null
   }
-}
-
 }
 </script>
 
@@ -129,9 +129,9 @@ const validateConfirmPassword = (blur) => {
                id="password" @blur="() => validatePassword(true)" 
                @input="() => validatePassword(false)" v-model="formData.password" 
               /> 
-              <div v-if="errors.confirmPassword" class="text-danger"> 
-                {{ errors.confirmPassword }} 
-              </div> 
+              <div v-if="errors.password" class="text-danger">
+                {{ errors.password }}
+              </div>
             </div>
 
             <div class="col-md-6 col-sm-6">
@@ -144,7 +144,7 @@ const validateConfirmPassword = (blur) => {
                   @blur="() => validateConfirmPassword(true)"
                 />
                 <div v-if="errors.confirmPassword" class="text-danger">
-                    {{ errors.confirmPassword }}
+                  {{ errors.confirmPassword }}
                 </div>
             </div>
           </div>
