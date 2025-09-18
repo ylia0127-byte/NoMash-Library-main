@@ -17,9 +17,8 @@ const firebaseConfig = {
   measurementId: "G-DBGSHBBV4L"
 };
 
-// 初始化 Firebase
+
 const app = initializeApp(firebaseConfig);
 
-// ✅ 导出 Firestore 实例作为 default
 const db = getFirestore(app);
 export default db;
